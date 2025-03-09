@@ -1,0 +1,9 @@
+[Unit]
+Description=change root shell to zsh
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/sudo -u root bash -c "if [ $SHELL = /bin/bash ]; then chsh -s /usr/bin/zsh root; fi"
+
+[Install]
+WantedBy=default.target

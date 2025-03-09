@@ -1,0 +1,9 @@
+[Unit]
+Description=make yazi executable
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/sudo -u root bash -c "if [ ! -x /usr/local/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh ]; then chmod +x /usr/local/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh; fi"
+
+[Install]
+WantedBy=default.target
