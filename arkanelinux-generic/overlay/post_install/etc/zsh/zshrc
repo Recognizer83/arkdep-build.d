@@ -32,6 +32,13 @@ WORDCHARS=${WORDCHARS/\/}
 [[ -f '/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh' ]] &&
 	source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+if [ ! $UID -eq 0 ] && [ ! '$(cat ~/.zshrc)' = '#/etc/zsh/zshrc' ]; then
+	echo '#/etc/zsh/zshrc' > ~/.zshrc
+fi
+if [ ! $UID -eq 0 ] && [ -d ~/.config/nvim ]; then
+	rm -rf ~/.config/nvim
+fi
+
 # Use colors for ls
 alias ls='ls --color=auto'
 alias ff='firefox & disown; exit'

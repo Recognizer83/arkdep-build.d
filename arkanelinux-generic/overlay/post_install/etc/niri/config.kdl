@@ -23,7 +23,6 @@ spawn-at-startup "gtklock"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "swww" "img" "/etc/niri/wall.png"
 spawn-at-startup "zsh" "-c" "if [ ! $UID -eq 0 ]; then systemctl --user start syncthing.service; systemctl --user start aria2cd.service; fi"
-spawn-at-startup "zsh" "-c" "CATZSH=$(cat ~/.zshrc); if [ ! $CATZSH = #/etc/zsh/zshrc ] && [ ! $UID -eq 0 ]; then echo #/etc/zsh/zshrc > ~/.zshrc; fi"
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
 animations {
