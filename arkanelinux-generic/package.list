@@ -31,6 +31,7 @@ zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
 base-devel
+jq
 fuse2
 neovim
 xdg-desktop-portal-wlr
