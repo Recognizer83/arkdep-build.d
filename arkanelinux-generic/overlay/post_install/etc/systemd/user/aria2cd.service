@@ -2,7 +2,7 @@
 Description=aria2 Daemon
 
 [Service]
-ExecStart=/usr/bin/aria2c --enable-rpc
+ExecStart=/usr/bin/aria2c --enable-rpc --rpc-listen-all --async-dns=false
 
 [Install]
 WantedBy=default.target
