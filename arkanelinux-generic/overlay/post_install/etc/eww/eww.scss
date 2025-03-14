@@ -1,0 +1,16 @@
+* {
+  all: unset;
+  font-family: "SourceCodePro", monospace;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.bar-body {
+  background-color: black;
+  border-style: solid;
+  border-color: white;
+  border-width: 4px 4px 4px 0px;
+  border-radius: 0px 17px 17px 0px;
+  padding-top: 14px;
+}
