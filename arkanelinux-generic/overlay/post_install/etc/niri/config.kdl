@@ -20,6 +20,9 @@ layout {
     }
 }
 spawn-at-startup "gtklock"
+spawn-at-startup "eww" "-c" "/etc/eww" "daemon"
+spawn-at-startup "eww" "-c" "/etc/eww" "open" "wall"
+spawn-at-startup "eww" "-c" "/etc/eww" "open" "bar"
 spawn-at-startup "zsh" "-c" "if [ ! $UID -eq 0 ]; then systemctl --user start syncthing.service; systemctl --user start aria2cd.service; fi"
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
