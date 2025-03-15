@@ -1,0 +1,8 @@
+[Unit]
+Description=Set niri scale
+
+[Service]
+ExecStart=/usr/bin/zsh -c "niri msg output $(niri msg outputs | grep 'Output ' | sed -E -n 's/.*\((.*)\).*$/\1/p') scale 1"
+
+[Install]
+WantedBy=default.target
