@@ -9,7 +9,7 @@
 	)
 )
 (defpoll day      :interval "1m" "date +%d")
-(defpoll month    :interval "1m"  "date +%m")
+(defpoll month    :interval "1m" "date +%m")
 
 
 (defwindow bar
