@@ -1,0 +1,102 @@
+(defwidget date []
+	(box
+		:class "date-body"
+		:orientation "v"
+		:valign "start"
+		:halign "center"
+		:active false
+		day month
+	)
+)
+(defpoll day      :interval "5s" "date +%d")
+(defpoll month    :interval "5s" "date +%m")
+
+(defwidget time []
+	(box
+		:class "time-body"
+		:orientation "v"
+		:valign "end"
+		:halign "center"
+		:active false
+		hour minute 
+	)
+)
+(defpoll hour     :interval "1s" "date +%H")
+(defpoll minute   :interval "1s" "date +%M")
+
+
+(defwidget online []
+	(box
+		:class "online"
+		:orientation "v"
+		:valign "start"
+		:halign "center"
+		:active false
+		{online_active ? "󰬬": "󰬦"}
+	)
+)
+(defpoll online_active
+	:initial true
+	:interval "1s" "zsh -c 'wget -q --spider http://google.com && echo true || echo false'"
+)
+
+(defwidget battery []
+	(box
+		:class "battery"
+		:orientation "v"
+		:valign "start"
+		:halign "center"
+		:active false
+		batstat
+	)
+)
+(defpoll batstat
+	:initial "󰪥"
+	:interval "2s" "zsh -c 'if [ $(cat /sys/class/power_supply/BAT0/status) = charging ] || ! [ -e /sys/class/power_supply/BAT0 ]; then echo 󰠠; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 12 ]; then echo 󰪞; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 24 ]; then echo 󰪟; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 36 ]; then echo 󰪠; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 48 ]; then echo 󰪡; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 60 ]; then echo 󰪢; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 72 ]; then echo 󰪣; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 84 ]; then echo 󰪤; else echo 󰪥; fi'"
+)
+
+(defwindow bar
+	:monitor "0"
+	:geometry (geometry :x 0 :y 0 :width "3%" :height "95.6%" :anchor "left center")
+	:stacking "fg"
+	:exclusive "true"
+	:focusable "false"
+	:namespace "bar"
+	(box
+		:orientation "v"
+		:space-evenly true
+		:class "bar-body"
+		(box
+			:orientation "v"
+			:space-evenly false
+			:valign "start"
+			:halign "center"
+			:active false
+			:class "start"
+			(date)
+			(online)
+			(battery)
+		)
+		(box
+			:orientation "v"
+			:space-evenly false
+			:valign "end"
+			:halign "center"
+			:active false
+			:class "end"
+			(time)
+		)
+
+	)
+)
+(defwindow wall
+	:monitor "0"
+	:geometry (geometry :x 0 :y 0 :width "100%" :height "100%" :achor "left top")
+	:stacking "bottom"
+	:exclusive "true"
+	:focusable "false"
+	:namespace "wall"
+	(image
+		:path "/etc/niri/wall.png"
+	)
+)

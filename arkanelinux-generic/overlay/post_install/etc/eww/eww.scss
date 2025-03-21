@@ -1,0 +1,23 @@
+* {
+  all: unset;
+  font-family: "SourceCodePro", monospace;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+
+.bar-body {
+  background-color: black;
+  border-style: solid;
+  border-color: white;
+  border-width: 3pt 3pt 3pt 0pt;
+  border-radius: 0pt 12pt 12pt 0pt;
+  padding-top: 10pt;
+  padding-bottom: 10pt;
+}
+.online {
+  margin-top: 8pt;
+}
+.battery {
+  margin-top: 8pt;
+}
