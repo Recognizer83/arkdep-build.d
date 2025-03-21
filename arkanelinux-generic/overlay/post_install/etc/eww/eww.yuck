@@ -52,7 +52,7 @@
 )
 (defpoll batstat
 	:initial "󰪥"
-	:interval "2s" "zsh -c 'if [ $(cat /sys/class/power_supply/BAT0/status) = charging ] || ! [ -e /sys/class/power_supply/BAT0 ]; then echo 󰠠; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 12 ]; then echo 󰪞; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 24 ]; then echo 󰪟; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 36 ]; then echo 󰪠; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 48 ]; then echo 󰪡; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 60 ]; then echo 󰪢; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 72 ]; then echo 󰪣; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 84 ]; then echo 󰪤; else echo 󰪥; fi'"
+	:interval "2s" "zsh -c 'if [ $(cat /sys/class/power_supply/BAT0/status) = Charging ] || ! [ -e /sys/class/power_supply/BAT0 ]; then echo 󰠠; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 12 ]; then echo 󰪞; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 24 ]; then echo 󰪟; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 36 ]; then echo 󰪠; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 48 ]; then echo 󰪡; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 60 ]; then echo 󰪢; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 72 ]; then echo 󰪣; elif [ $(cat /sys/class/power_supply/BAT0/capacity) -le 84 ]; then echo 󰪤; else echo 󰪥; fi'"
 )
 
 (defwindow bar
