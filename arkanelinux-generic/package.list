@@ -33,6 +33,7 @@ zsh-syntax-highlighting
 base-devel
 bc
 jq
+usb_modeswitch
 fuse2
 neovim
 xdg-desktop-portal-wlr
