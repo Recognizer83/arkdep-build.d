@@ -1,1 +1,1 @@
-echo "arkanelinux0"
+echo "arkanelinux-niri-$(date +%m-%d-%H-%M)"
