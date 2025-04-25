@@ -58,7 +58,8 @@ arch-chroot $workdir userdel -r aur
 arch-chroot $workdir systemctl enable bluetooth.service
 
 
-#Enabling wifi.
+#Enabling internet.
+arch-chroot $workdir systemctl enable systemd-networkd.service
 arch-chroot $workdir systemctl enable systemd-resolved.service
 arch-chroot $workdir systemctl enable iwd.service
 
