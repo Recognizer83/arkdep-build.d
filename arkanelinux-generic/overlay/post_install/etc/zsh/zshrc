@@ -42,7 +42,8 @@ fi
 # Use colors for ls
 alias ls='ls --color=auto'
 alias ff='firefox & disown; exit'
-alias tff='firefox & disown'
+alias tff='firefox & disown > /dev/null'
 alias yazi='env "YAZI_CONFIG_HOME=/etc/yazi" yazi'
+alias sudo='sudo EDITOR=nvim'
 VISUAL='nvim'
 EDITOR='nvim'
