@@ -1,0 +1,8 @@
+[Match]
+Name=enp8s0
+
+[Link]
+RequiredForOnline=routable
+
+[Network]
+DHCP=yes
