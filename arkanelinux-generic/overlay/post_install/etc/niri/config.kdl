@@ -4,7 +4,11 @@ input {
         natural-scroll
     }
 }
-
+gestures {
+    hot-corners {
+        off
+    }
+}
 
 layout {
     gaps 24
