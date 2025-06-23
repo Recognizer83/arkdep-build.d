@@ -10,12 +10,6 @@ if [ -z "$(grep 64f851f7-dab5-44c3-9e69-246c69be13c8 /arkdep/overlay/etc/fstab)"
 fi
 
 
-#Removing /var/usrlocal from migrations.
-if [ ! -z "$(grep var/usrlocal /arkdep/config)" ]; then
-	sed -e "s%'var/usrlocal' %%g" -i /arkdep/config
-fi
-
-
 #Adding Chaotic repo.
 arch-chroot $workdir pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 arch-chroot $workdir pacman-key --lsign-key 3056513887B78AEB
@@ -70,7 +64,3 @@ arch-chroot $workdir systemctl enable adbserver.service
 
 #Making ZSH default shell for root user.
 arch-chroot $workdir systemctl enable zshroot.service
-
-
-#Making yazi wrapper executable.
-arch-chroot $workdir systemctl enable xpermprovider.service

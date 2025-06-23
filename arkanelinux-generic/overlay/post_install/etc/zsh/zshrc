@@ -38,6 +38,14 @@ fi
 if [ ! $UID -eq 0 ] && [ -d ~/.config/nvim ]; then
 	rm -rf ~/.config/nvim
 fi
+if [ ! $UID -eq 0 ] && [ ! -f ~/.config/xdg-desktop-portal-termfilechooser/config ]; then
+	rm -rf ~/.config/xdg-desktop-portal-termfilechooser
+	mkdir -p ~/.config/xdg-desktop-portal-termfilechooser
+	cp /usr/share/xdg-desktop-portal-termfilechooser/config ~/.config/xdg-desktop-portal-termfilechooser/config
+fi
+if [ ! $UID -eq 0 ] && grep -q 'env=TERMCMD=foot' ~/.config/xdg-desktop-portal-termfilechooser/config; then
+	sed -i 's|; env=TERMCMD=foot|env=TERMCMD=wezterm --config-file /etc/wezterm/wezterm.lua start --always-new-process|g' ~/.config/xdg-desktop-portal-termfilechooser/config
+fi
 
 # Use colors for ls
 alias ls='ls --color=auto'
