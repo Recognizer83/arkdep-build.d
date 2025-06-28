@@ -4,8 +4,6 @@
   font-size: 14pt;
   font-weight: bold;
 }
-
-
 .bar-body {
   background-color: black;
   border-style: solid;
@@ -20,4 +18,19 @@
 }
 .battery {
   margin-top: 8pt;
+}
+scale.volbar trough {
+  margin-top: 8pt;
+  margin-bottom: 1pt;
+  border-style: solid;
+  border-color: white;
+  border-radius: 7pt;
+  border-color: white;
+  border-width: 2pt;
+  min-height: 50pt;
+  min-width: 10pt;
+}
+scale.volbar trough highlight {
+  background-color: white;
+  border-radius: 7pt;
 }

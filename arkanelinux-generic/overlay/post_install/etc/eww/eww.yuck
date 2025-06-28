@@ -1,3 +1,15 @@
+(defwidget volbar []
+	(scale
+		:class "volbar"
+		:value volume
+		:orientation "v"
+		:valign "start"
+		:halign "center"
+		:active false
+	)
+)
+(defvar volume "")
+
 (defwidget date []
 	(box
 		:class "date-body"
@@ -74,6 +86,7 @@
 			:active false
 			:class "start"
 			(date)
+			(volbar)
 			(online)
 			(battery)
 		)
