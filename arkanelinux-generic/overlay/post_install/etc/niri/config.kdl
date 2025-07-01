@@ -24,7 +24,7 @@ layout {
     }
 }
 spawn-at-startup "zsh" "-c" "if [ ! $UID -eq 0 ]; then systemctl --user start syncthing.service; systemctl --user start aria2cd.service; systemctl --user start niriscale.service; fi"
-spawn-at-startup "zsh" "-c" "wpctl get-volume @DEFAULT_AUDIO_SINK@; eww -c /etc/eww daemon &; eww -c /etc/eww open wall; eww -c /etc/eww open bar; eww -c /etc/eww update volume=`echo \"scale=0; $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's#Volume: ##g') * 50/1\" | bc`"
+spawn-at-startup "zsh" "-c" "eww -c /etc/eww daemon &; eww -c /etc/eww open wall; eww -c /etc/eww open bar"
 spawn-at-startup "gtklock"
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
@@ -39,8 +39,8 @@ window-rule {
 binds {
     Mod+T { spawn "wezterm" "--config-file" "/etc/wezterm/wezterm.lua"; }
     Super+Alt+L { spawn "gtklock"; }
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "zsh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ --limit 2; eww -c /etc/eww update volume=`echo \"scale=0; $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's#Volume: ##g') * 50/1\" | bc`"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "zsh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-; eww -c /etc/eww update volume=`echo \"scale=0; $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's#Volume: ##g') * 50/1\" | bc`"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "zsh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ --limit 1.50; wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's#Volume: ##g' > ~/.volume"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "zsh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-; wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's#Volume: ##g' > ~/.volume"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 

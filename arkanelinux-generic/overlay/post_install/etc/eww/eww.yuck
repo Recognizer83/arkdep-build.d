@@ -1,14 +1,15 @@
 (defwidget volbar []
 	(scale
 		:class "volbar"
-		:value volume
+		:flipped true
+		:value {volume * 66.66}
 		:orientation "v"
 		:valign "start"
 		:halign "center"
 		:active false
 	)
 )
-(defvar volume "")
+(deflisten volume :initial "" `tail -F ~/.volume 2> /dev/null`)
 
 (defwidget date []
 	(box
