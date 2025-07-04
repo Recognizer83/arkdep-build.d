@@ -24,6 +24,7 @@ layout {
     }
 }
 spawn-at-startup "zsh" "-c" "if [ ! $UID -eq 0 ]; then systemctl --user start syncthing.service; systemctl --user start aria2cd.service; systemctl --user start niriscale.service; fi"
+spawn-at-startup "zsh" "-c" "while true; do sleep 0.1; wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's#Volume: ##g' > ~/.volume; done"
 spawn-at-startup "zsh" "-c" "eww -c /etc/eww daemon &; eww -c /etc/eww open wall; eww -c /etc/eww open bar"
 spawn-at-startup "gtklock"
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
@@ -39,8 +40,8 @@ window-rule {
 binds {
     Mod+T { spawn "wezterm" "--config-file" "/etc/wezterm/wezterm.lua"; }
     Super+Alt+L { spawn "gtklock"; }
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "zsh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ --limit 1.50; wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's#Volume: ##g' > ~/.volume"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "zsh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-; wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's#Volume: ##g' > ~/.volume"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "zsh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ --limit 1.50"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "zsh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
