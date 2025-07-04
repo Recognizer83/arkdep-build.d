@@ -34,7 +34,7 @@ Defaults:aur !authenticate ' | arch-chroot $workdir tee -a /etc/sudoers
 
 
 #Using user 'aur' to install necessary AUR packages.
-echo 'password\n' | arch-chroot $workdir sudo -S -u aur paru -Syy --noconfirm wezterm-nightly-bin eww-git bluetuith-bin mmtui-bin calcure xdg-desktop-portal-termfilechooser-hunkyburrito-git pulsemixer wl-clipboard-rs
+echo 'password\n' | arch-chroot $workdir sudo -S -u aur paru -Syy --noconfirm wezterm-nightly-bin eww-git bluetuith-bin mmtui-bin calcure xdg-desktop-portal-termfilechooser-hunkyburrito-git wiremix wl-clipboard-rs
 
 
 #Cleaning up after package install.
