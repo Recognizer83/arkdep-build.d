@@ -20,17 +20,28 @@
   margin-top: 8pt;
 }
 scale.volbar trough {
-  margin-top: 8pt;
-  margin-bottom: 1pt;
-  border-style: solid;
-  border-color: white;
-  border-radius: 7pt;
-  border-color: white;
-  border-width: 2pt;
-  min-height: 50pt;
-  min-width: 10pt;
+  min-height: 40pt;
+  min-width: 3pt;
+  margin-top: 2pt;
 }
 scale.volbar trough highlight {
+  background-color: black;
+  border-radius: 3pt;
+}
+.volbox {
   background-color: white;
-  border-radius: 7pt;
+  border-style: solid;
+  border-color: white;
+  border-width: 1.4pt;
+  border-radius: 8pt;
+  margin-top: 8pt;
+  min-width: 10pt;
+  padding-top: 3pt;
+  padding-bottom: 3pt;
+}
+.volcon {
+  background-color: white;
+  color: black;
+  font-size: 7pt;
+  margin-top: 3pt;
 }

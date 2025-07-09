@@ -1,3 +1,21 @@
+(defwidget volbox []
+	(box
+		:class "volbox"
+		:orientation "v"
+		:valign "center"
+		:halign "center"
+		:space-evenly false
+		:active false
+		(volbar)
+		(volcon)
+	)
+)
+(defwidget volcon []
+	(label
+		:class "volcon"
+		:text ""
+	)
+)
 (defwidget volbar []
 	(scale
 		:class "volbar"
@@ -87,7 +105,7 @@
 			:active false
 			:class "start"
 			(date)
-			(volbar)
+			(volbox)
 			(online)
 			(battery)
 		)
