@@ -33,6 +33,7 @@ zsh-syntax-highlighting
 base-devel
 bc
 jq
+acpid
 usb_modeswitch
 fuse2
 neovim

@@ -64,3 +64,7 @@ arch-chroot $workdir systemctl enable adbserver.service
 
 #Making ZSH default shell for root user.
 arch-chroot $workdir systemctl enable zshroot.service
+
+
+#Enabling acpid.
+arch-chroot $workdir systemctl enable acpid.service
