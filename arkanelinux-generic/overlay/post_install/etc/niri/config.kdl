@@ -27,6 +27,7 @@ spawn-at-startup "zsh" "-c" "if [ ! $UID -eq 0 ]; then systemctl --user start sy
 spawn-at-startup "zsh" "-c" "eww -c /etc/eww daemon &; eww -c /etc/eww open wall; eww -c /etc/eww open bar"
 spawn-at-startup "zsh" "-c" "acpi_listen | while IFS='' read line; do wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's#Volume: ##g' > ~/.volume; done"
 spawn-at-startup "zsh" "-c" "udevadm monitor | while IFS='' read line; do wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's#Volume: ##g' > ~/.volume; done"
+spawn-at-startup "zsh" "-c" "while true; do if pgrep -x wiremix > /dev/null; then while true; do if ! pgrep -x wiremix > /dev/null; then wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's#Volume: ##g' > ~/.volume; break; fi; done; fi; done"
 spawn-at-startup "gtklock"
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
