@@ -63,7 +63,7 @@
 		:valign "start"
 		:halign "center"
 		:active false
-		{online_active ? "󰬬": "󰬦"}
+		{online_active ? "󰇧": "󰅙"}
 	)
 )
 (defpoll online_active
